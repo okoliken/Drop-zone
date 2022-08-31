@@ -52,3 +52,10 @@ body {
 .file--is--in--zone {
   background-color: #F6F6F6;
 }
+.file{
+  margin-top: 15px;
+}
+.user-img-fluid{
+  height: 100px;
+  margin: 15px 0;
+}

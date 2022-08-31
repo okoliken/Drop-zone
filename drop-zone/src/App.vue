@@ -2,15 +2,24 @@
 import { ref, provide } from "vue";
 import DropZone from "./components/drop-zone.vue";
 
+// interface Profile {
+//   userFile: File | URL;
+// }
+
 const in_drop_zone = ref<boolean>(false);
+const dropped_file = ref(null);
 
 const drop_file = (e) => {
-  console.log(e.dataTransfer.files[0]);
+  in_drop_zone.value = !in_drop_zone.value;
+  if (e) {
+    dropped_file.value = URL.createObjectURL(e.dataTransfer.files[0]);
+  } else return;
 };
+
 const toggle_active = () => {
   in_drop_zone.value = !in_drop_zone.value;
 };
-provide("in_drop_zone", in_drop_zone);
+provide("dropped_file", dropped_file);
 </script>
 
 <template>
