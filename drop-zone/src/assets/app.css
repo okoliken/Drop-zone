@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.drop__spot {
+  display: flex;
+  width: 100%;
+  padding-top: 43px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.drop__spot label.select-a-file {
+  background-color: #89cffd;
+  color: #fff;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+
+.drop__spot .mui--size {
+  font-size: 120px;
+}
+.drop__spot h3 {
+  font-size: 30px;
+  color: #100f0f;
+}
+.drop__spot p {
+  font-size: 25px;
+  color: #100f0f;
+  margin-bottom: 20px;
+}
+
+.drop-wrapper__container {
+  margin-top: 120px;
+  width: 500px;
+  min-height: 400px;
+  max-width: 100%;
+  border: 1px dashed #89cffd;
+}
+
+.file--is--in--zone {
+  background-color: #89cffd;
+}

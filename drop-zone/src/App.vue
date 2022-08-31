@@ -1,47 +1,24 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { ref } from "vue";
+import DropZone from "./components/drop-zone.vue";
+
+const in_drop_zone = ref<boolean>(false);
+
+const drop = () => {
+  in_drop_zone.value = !in_drop_zone.value;
+};
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <div
+    @dragenter.prevent="drop"
+    @dragleave.prevent="drop"
+    @dragover.prevent
+    :class="{ 'file--is--in--zone': in_drop_zone }"
+    class="drop-wrapper__container"
+  >
+    <DropZone />
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+<style scoped></style>
