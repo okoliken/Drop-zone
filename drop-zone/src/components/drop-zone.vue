@@ -1,17 +1,7 @@
-<script setup lang="ts">
-import { ref } from "vue";
-
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div
-    @dragenter.prevent="drop"
-    @dragleave.prevent="drop"
-    @dragover.prevent
-    @drop.prevent="drop"
-    class="drop__spot"
-  >
+  <div class="drop__spot">
     <span class="material-symbols-outlined mui--size"> cloud_upload </span>
     <h3>Drag&Drop files here</h3>
     <p>or</p>
