@@ -1,0 +1,38 @@
+/*=========================================================================================
+	File Name: sidebar.scss
+	Description: Sidebar component style
+	----------------------------------------------------------------------------------------
+	Item Name: Vuesax Admin - VueJS Dashboard Admin Template
+	Version: 1.1
+	Author: Pixinvent
+	Author URL: hhttp://www.themeforest.net/user/pixinvent
+==========================================================================================*/
+.vs-content-sidebar .vs-sidebar .vs-sidebar--header .header-sidebar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 800%;
+}
+.vs-content-sidebar .vs-sidebar .vs-sidebar--header .header-sidebar h4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.vs-content-sidebar .vs-sidebar .vs-sidebar--header .header-sidebar h4 > button {
+  margin-left: 10px;
+}
+.vs-content-sidebar .vs-sidebar .vs-sidebar--footer .footer-sidebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.vs-content-sidebar .vs-sidebar .vs-sidebar--footer .footer-sidebar > button {
+  border: 0px solid rgba(0, 0, 0, 0) !important;
+  border-left: 1px solid rgba(0, 0, 0, 0.07) !important;
+  border-radius: 0px !important;
+}
+.vs-content-sidebar .vs-sidebar .vs-sidebar--item i.material-icons {
+  font-size: 1.2rem;
+}/*# sourceMappingURL=sidebar.css.map */

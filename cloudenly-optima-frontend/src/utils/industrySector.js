@@ -1,0 +1,23 @@
+export default  [
+    'Agriculture',
+    'Automotive',
+    'Consulting and Professional Services',
+    'Consumer Goods',
+    'Education',
+    'Engineering and Construction',
+    'Financial Services',
+    'Government and Public Services',
+    'Healthcare',
+    'Hospitality, Recreation and Leisure',
+    'Industrial Goods',
+    'Information and Communications Technology',
+    'Manufacturing',
+    'Materials and Mining',
+    'Media and Creative Art',
+    'Non-Profit Organization',
+    'Petro-chemicals, Oil and Gas',
+    'Power and Utilities',
+    'Real Estate',
+    'Transportation',
+    'Others'
+]

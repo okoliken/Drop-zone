@@ -1,0 +1,43 @@
+
+@import "vuesax/variables";
+
+@import "vuesax/layout";
+@import "vuesax/typography";
+@import "vuesax/misc";
+@import "vuesax/extraComponents";
+@import "vuesax/themes";
+@import "vuesax/routerAnimations";
+@import "vuesax/transitions";
+
+@import "vuesax/customClasses";
+
+
+// Import Boostrap
+// @import "boostrap/functions";
+// @import "boostrap/variables";
+// @import "boostrap/mixins";
+// @import "boostrap/root";
+// @import "boostrap/type";
+// @import "boostrap/dropdown";
+// @import "boostrap/buttons";
+// @import "boostrap/input-group";
+// @import "boostrap/forms";
+// @import "boostrap/grid";
+
+// @import "boostrap/tables";
+// @import "boostrap/nav";
+// @import "boostrap/navbar";
+// @import "boostrap/reboot";
+
+// multiselect vue
+
+@import "./vuemultiselect/muitiselect";
+
+
+
+
+// Vuesax fixes and enhancments
+@import "vuesax/fixesVuesax";
+
+// Tailwind Fixes
+@import "vuesax/tailwindFix";

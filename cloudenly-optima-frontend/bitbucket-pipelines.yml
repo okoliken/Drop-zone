@@ -1,0 +1,77 @@
+image: node:10.15.3
+pipelines:
+  branches:
+
+    master:
+      - step:
+          name: Build
+          script:
+            - npm install
+            - npm run build
+          artifacts:
+            - dist/**
+      - step:
+          name: Deploy
+          deployment: production
+          script:
+            - pipe: atlassian/aws-s3-deploy:0.2.4
+              variables:
+
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                #                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION:  $AWS_DEFAULT_REGION
+                #                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                #                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID"
+                S3_BUCKET: $S3_BUCKET_OPTIMA_PROD
+                ACL: "public-read"
+                LOCAL_PATH: "dist"
+    staging:
+      - step:
+          name: Build
+          script:
+            - npm install
+            - npm run build -- --mode prod
+          artifacts:
+            - dist/**
+      - step:
+          name: Deploy to staging environment
+          deployment: staging
+          script:
+            - pipe: atlassian/aws-s3-deploy:0.2.4
+              variables:
+
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                #                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION:  $AWS_DEFAULT_REGION
+                #                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                #                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID"
+                S3_BUCKET: $S3_BUCKET_OPTIMA_DEV
+                ACL: "public-read"
+                LOCAL_PATH: "dist"
+    Develop:
+      - step:
+          name: Build,
+          deployment: test
+          script:
+            - npm install
+            - npm run build -- --mode prod
+          artifacts:
+            - dist/**
+      - step:
+          name: Deploy to development environment
+          deployment: development
+          script:
+            - pipe: atlassian/aws-s3-deploy:0.2.4
+              variables:
+
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                #                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION:  $AWS_DEFAULT_REGION
+                #                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                #                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID"
+                S3_BUCKET: $S3_BUCKET_OPTIMA_DEV
+                ACL: "public-read"
+                LOCAL_PATH: "dist"

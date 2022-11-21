@@ -1,0 +1,13 @@
+
+///////////////////////////////////////////////////////////
+// transition-group : list;
+///////////////////////////////////////////////////////////
+.list-leave-active {
+	position: absolute;
+}
+
+.list-enter,
+.list-leave-to{
+	opacity: 0;
+	transform: translateX(30px);
+}

@@ -1,0 +1,22 @@
+// @import url("https://fonts.googleapis.com/css?family=Roboto");
+// @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+$globalFontSize: 13px;
+
+
+html{
+  font-size: $globalFontSize !important;
+  // font-family: 'Lato', sans-serif;
+  // font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
+
+.reduced-vsidebar{
+  .vs-sidebar.vs-sidebar-primary.vs-sidebar-parent {
+    max-width: 220px !important;
+  }
+}
+

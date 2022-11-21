@@ -1,0 +1,27 @@
+<template>
+  <svg
+    width="12"
+    height="12"
+    viewBox="0 0 12 12"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M4.80051 3H2.51651C3.33274 1.84722 4.56436 1.2 6.00043 1.2C8.65121 1.2 10.8001 3.34903 10.8001 6H12C12 2.68629 9.3139 0 6.00043 0C4.31801 0 2.83572 0.709507 1.80073 1.96221V0H0.600811V4.2H4.80051V3ZM7.19949 9H9.48349C8.66726 10.1528 7.43565 10.8 5.99958 10.8C3.3488 10.8 1.19992 8.65097 1.19992 6H0C0 9.31371 2.6861 12 5.99958 12C7.682 12 9.16429 11.2905 10.1993 10.0378V12H11.3992V7.8H7.19949V9Z"
+      :fill="fill"
+    />
+  </svg>
+</template>
+
+<script>
+export default {
+  name: "ScellooUpdateLoader",
+  props: {
+    fill: { type: String, default: "#F3F6F9" },
+  },
+};
+</script>
+
+<style></style>

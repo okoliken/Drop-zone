@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+/*========================================================
+		SPACING
+=========================================================*/
+/*========================================================
+		COLORS
+=========================================================*/
+/*========================================================
+		TYPOGRAPHY
+=========================================================*/
+/*========================================================
+		TYPOGRAPHY
+=========================================================*/
+/*========================================================
+		DARK THEME
+=========================================================*/
+.main-menu-sidebar {
+  white-space: nowrap;
+  background-color: #1034A6;
+}
+.main-menu-sidebar .vs-sidebar {
+  z-index: 41000;
+  position: fixed;
+  max-width: 220px;
+  height: 100%;
+}
+.main-menu-sidebar .vs-sidebar .vs-sidebar--items {
+  padding: 0;
+  margin: 0;
+}
+.main-menu-sidebar .vs-sidebar.vs-sidebar-reduce {
+  max-width: 80px;
+}
+.main-menu-sidebar .vs-sidebar.vs-sidebar-reduce:hover:not(.vs-sidebar-reduceNotRebound):not(.vs-sidebar-reduceNotHoverExpand) .vs-sidebar-group .group-header i {
+  display: block;
+}
+.main-menu-sidebar .vs-sidebar.vs-sidebar-reduce .vs-sidebar-group .group-header i {
+  display: none;
+}
+.main-menu-sidebar .scroll-area--main-sidebar {
+  background-color: #1034A6;
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: calc(100vh - 8px);
+  padding-right: 22px;
+  padding-left: 0px;
+}
+.main-menu-sidebar .feather-icon {
+  color: #F3F6F9;
+  margin-right: 10px;
+}
+.main-menu-sidebar .feather-icon .feather {
+  width: 20px;
+  height: 20px;
+  color: #F3F6F9;
+}
+.main-menu-sidebar .vs-sidebar--item {
+  transition: none;
+  overflow: visible !important;
+  margin-bottom: 10px;
+}
+.main-menu-sidebar .vs-sidebar--item:hover a > * {
+  transform: translateX(5px);
+}
+.main-menu-sidebar .vs-sidebar--item a {
+  font-size: 0.5rem;
+  transition: none;
+  color: #F3F6F9;
+  padding: 10px 15px;
+  padding-left: 25px;
+}
+.main-menu-sidebar .vs-sidebar--item a > * {
+  transition: transform 0.25s ease;
+}
+.main-menu-sidebar .vs-sidebar--item a span {
+  font-size: 12px;
+  font-weight: 500;
+  color: #FFF;
+}
+.main-menu-sidebar .vs-sidebar--item.disabled-item a span {
+  color: #e2e2e2;
+}
+.main-menu-sidebar .vs-sidebar--item .router-link-active {
+  font-weight: 400;
+  opacity: 0.2;
+  width: 210px;
+  height: 36px;
+  left: 0px;
+  top: 165px;
+}
+.main-menu-sidebar .vs-sidebar--item .router-link-active .feather-icon {
+  color: white;
+}
+.main-menu-sidebar .vs-sidebar--item .router-link-active .feather-icon .feather {
+  color: white;
+}/*# sourceMappingURL=vxSidebar.css.map */

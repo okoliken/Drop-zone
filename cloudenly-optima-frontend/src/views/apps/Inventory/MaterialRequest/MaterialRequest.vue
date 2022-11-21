@@ -1,0 +1,1279 @@
+<!-- <template> -->
+  <!-- <div class=""> -->
+    <!-- <back location="Material Request - Create New" class="mb-8" /> -->
+
+    <!-- process request -->
+    <!-- <vs-popup
+      button-close-hidden
+      :active.sync="processModal"
+      title="Process Material Request"
+    >
+      <div class="container ">
+        <div
+          class="p-5 border border-solid rounded border-l-4 border-r-0 border-b-0 border-t-0 border-cloudenly-primary-main bg-white "
+        >
+          <div class="flex items-center mx-1">
+            <div class="mr-5">
+              <feather-icon
+                svgClasses="text-cloudenly-primary-main"
+                class="h-8 w-8"
+                icon="InfoIcon"
+              ></feather-icon>
+            </div>
+
+            <div>
+              <h1 class="m-0">Process Info</h1>
+              <p>
+                Please note that this material request may undergo approval
+                process
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-3 flex items-center justify-center">
+          <button
+            :disabled="processButton"
+            :class="{
+              'cursor-not-allowed': processButton,
+              'bg-cloudenly-primary-mid': processButton,
+            }"
+            @click="processMaterialRequest"
+            class="px-5 py-2 mr-5 bg-cloudenly-primary-main border-none text-white cursor-pointer rounded"
+          >
+            Process
+          </button>
+          <button
+            class="border-none bg-transparent px-5 py-2 cursor-pointer"
+            @click="processModal = false"
+          >
+            cancel
+          </button>
+        </div>
+      </div>
+    </vs-popup> -->
+    <!-- End process Requisition Section -->
+
+    <!-- material Request code setup section -->
+    <!-- <setup-code-modal
+      is-module
+      module-name="MATREQ"
+      :preview-code="materialRequestData.materialRequestNumber"
+      :loading="isGeneratingCode"
+      v-model="setupIdModal"
+      @proceed="setupCodeFormat($event)"
+    /> -->
+
+    <!-- End Material Request Code Setup section -->
+    <!-- <div
+      v-if="getIsAccOwner || getMaterialRequestPrivileges.issueMaterialRequest"
+    > -->
+      <!-- <div class="px-5 py-8 bg-white"> -->
+        <!-- <div class="grid grid-cols-3 col-gap-16 row-gap-10 gap-10"> -->
+          <!-- <div class="col-4">
+            <div>
+              <div class="form-group row no-gutters mb-5 pb-0">
+                <label
+                  for="default-input-rounded"
+                  class="label font-semibold mb-5"
+                >
+                  Select Outlet
+                </label>
+              </div>
+
+              <div class="mb-5">
+                <select
+                  @change="selectedStoreManager"
+                  v-model="materialRequestData.contact"
+                  name
+                  class="py-2 px-2 rounded w-full border-2 border-gray-400"
+                  id
+                >
+                  <option
+                    v-for="(outlet, index) in getOptimaOutlet"
+                    :key="index"
+                    :value="outlet"
+                  >
+                    {{ outlet.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- <div class="col-4">
+            <div>
+              <div class="mb-5">
+                <label for="" class="font-semibold"> Request Title </label>
+              </div>
+              <div class="">
+                <div class="w-full">
+                  <input
+                    v-model="materialRequestData.title"
+                    class="py-2 px-3 rounded border-2 border-gray-400 w-full"
+                    type="text"
+                    name
+                    id
+                  />
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- <div class="col-4"> -->
+            <!-- <div class=""> -->
+              <!-- <div class="mb-5"> -->
+                <!-- <div class="flex items-center justify-between"> -->
+                  <!-- <div>
+                    <label class="font-semibold mb-5" for="inline-full-name">
+                      Request Number
+                    </label>
+                  </div> -->
+
+                  <!-- <div>
+                    <button
+                      @click="setupIdModal = true"
+                      class="text-primary-optima-color"
+                    > 
+                      Setup Code Link
+                    </button>
+                  </div> -->
+                <!-- </div> -->
+              <!-- </div> -->
+              <!-- <div class>
+                <input
+                  v-model="materialRequestData.materialRequestNumber"
+                  type="text"
+                  class="py-2 px-2 rounded w-full border-2 border-gray-400"
+                  name
+                  id
+                />
+              </div> -->
+            <!-- </div> -->
+          <!-- </div> -->
+        <!-- </div> -->
+<!-- 
+        <div class="grid grid-cols-3 col-gap-16 row-gap-10 gap-10">
+          <div class="col-4">
+            <div class="">
+              <div class="mb-5">
+                <label class="font-semibold mb-5" for="inline-full-name">
+                  Store Manager
+                </label>
+              </div>
+              <div class>
+                <select
+                  v-model="materialRequestData.storeManagerId"
+                  name
+                  class="py-2 px-2 rounded w-full border-2 border-gray-400"
+                  id
+                >
+                  <option
+                    v-for="(manager, index) in getOptimaUsers"
+                    :key="index"
+                    :value="manager.id"
+                  >
+                    {{ manager.fname + " " + manager.lname }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div> -->
+
+      
+
+          <!-- <div class="col-4">
+            <div>
+              <div class="form-group row no-gutters mb-5 pb-0">
+                <label
+                  for="default-input-rounded"
+                  class="label font-semibold mb-5"
+                >
+                  Select Function
+                </label>
+              </div>
+
+              <div class="mb-5">
+                <select
+                  @change="selectedFunctionId"
+                  v-model="materialRequestData.functionMakingRequestData"
+                  name
+                  class="py-2 px-2 rounded w-full border-2 border-gray-400"
+                  id
+                >
+                  <option
+                    v-for="(orgFunc, index) in getOrgFunction"
+                    :key="index"
+                    :value="orgFunc"
+                  >
+                    {{ orgFunc.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- <div class="col-4">
+            <div class>
+              <div class="mb-5">
+                <label class="font-semibold" for=""> Request From </label>
+              </div>
+              <div class="mb-5">
+                <input
+                  disabled
+                  v-model="materialRequestData.requestedFrom"
+                  type="text"
+                  class="py-3 px-3 rounded border-2 border-gray-400 w-full"
+                  name
+                  id
+                />
+              </div>
+            </div>
+          </div> -->
+        <!-- </div> -->
+
+        <!-- <div class="grid grid-cols-3 col-gap-16 row-gap-10 gap-10">
+          <div class="col-4">
+            <div class>
+              <div class="mb-5">
+                <label class="font-semibold" for=""> Requested Date </label>
+              </div>
+              <div class>
+                <datepicker
+                  v-model="materialRequestData.dateRequested"
+                  input-class="w-full py-3"
+                  placeholder="Select Date"
+                ></datepicker>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-4">
+            <div class="mb-5">
+              <label class="font-semibold" for=""> Validity Period </label>
+            </div>
+            <div class="flex items-center w-full">
+              <div class="w-1/3">
+                <select
+                  class="py-2 px-3 border-2 border-gray-400 w-full"
+                  placeholder="Select Category"
+                  v-model="materialRequestData.validityType"
+                >
+                  <option value="days">Days</option>
+                  <option value="weeks">Weeks</option>
+                  <option value="month">Month</option>
+                </select>
+              </div>
+              <div class="w-2/3 mr-2">
+                <input
+                  type="text"
+                  v-model="materialRequestData.validityDur"
+                  class="py-2 px-3 border-2 border-gray-400 w-full"
+                  name
+                  id
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-4">
+            <div class="mb-5">
+              <label for="" class="font-semibold"> Request Description </label>
+            </div>
+            <div class="form-group row no-gutters">
+              <div class="col-md-12">
+                <textarea
+                  v-model="materialRequestData.description"
+                  rows="4"
+                  cols="30"
+                  class="py-2 px-2 border-2 border-gray-400 w-full rounded"
+                  placeholder="Enter Description"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <hr class="mt-10" /> -->
+
+        <!-- <section class="mt-10">
+          <div class=" ">
+            <span class="font-semibold">Bill of Quantity</span>
+            <table class="table min-w-full mt-5">
+              <thead class="bg-gray-300">
+                <tr class>
+                  <th class="py-4 px-6 tracking-wider text-dark-optima-color">
+                    ITEM NAME
+                  </th>
+                  <th class="py-4 px-6 tracking-wider text-dark-optima-color">
+                    DESCRIPTION
+                  </th>
+                  <th class="py-4 px-6 tracking-wider text-dark-optima-color">
+                    SKU
+                  </th>
+                  <th class="py-4 px-6 tracking-wider text-dark-optima-color">
+                    UofM
+                  </th>
+                  <th class="py-4 px-6 tracking-wider text-dark-optima-color">
+                    REQUEST QTY
+                  </th>
+                  <th class="py-4 px-6 tracking-wider text-dark-optima-color">
+                    Action
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr
+                  v-for="(material,
+                  index) in materialRequestData.materialRequestBoqs"
+                  :key="index"
+                >
+                  <td class="px-6 py-3 whitespace-no-wrap border">
+                    <input
+                      disabled
+                      class="py-2 px-2 border-2 border-gray-400 w-full rounded"
+                      v-model="material.variantName"
+                      name
+                      id
+                    />
+                  </td>
+                  <td class="px-6 py-3 whitespace-no-wrap border">
+                    <input
+                      disabled
+                      class="py-2 px-2 border-2 border-gray-400 w-full rounded"
+                      v-model="material.description"
+                      name
+                      id
+                    />
+                  </td>
+                  <td class="px-6 py-3 whitespace-no-wrap border">
+                    <input
+                      disabled
+                      class="py-2 px-2 border-2 border-gray-400 w-full rounded"
+                      v-model="material.variantCode"
+                      name
+                      id
+                    />
+                  </td>
+                  <td class="px-6 py-3 whitespace-no-wrap border">
+                    <input
+                      disabled
+                      class="py-2 px-2 border-2 border-gray-400 w-full rounded"
+                      v-model="material.unitOfMeasure"
+                      name
+                      id
+                    />
+                  </td>
+
+                  <td class="px-6 py-3 whitespace-no-wrap border">
+                    <input
+                      v-model="material.quantityRequested"
+                      class="py-2 px-2 border-2 border-gray-400 w-full rounded"
+                      placeholder="Enter Quantity"
+                    />
+                  </td>
+                  <td class="px-6 py-3 whitespace-no-wrap border">
+                    <feather-icon
+                      icon="TrashIcon"
+                      @click="deleteItem(index)"
+                      class="p-2 h-8 w-8 text-cloudenly-danger-main cursor-pointer text-red inline-flex"
+                    ></feather-icon>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <AddItemPurchase v-on:addItem="addItem" />
+          </div>
+
+          <hr class="mt-10" />
+
+          <div class="flex items-center justify-between mt-10">
+            <button
+              @click="$router.back()"
+              style="background: #f3f6f9; color: #1034a6"
+              type="button"
+              class="px-8 py-4 rounded-full"
+            >
+              Cancel
+            </button>
+
+            <div>
+              <button
+                type=" button"
+                class="py-4 px-8 mr-10 text-primary-optima-color bg-primary-optima-color-lite rounded-full"
+                :class="{ 'cursor-not-allowed': saveButton }"
+                @click.prevent="saveMaterialRequest"
+              >
+                Save as Draft
+              </button>
+
+              <button
+                type=" button"
+                class="py-4 px-8 text-white bg-primary-optima-color rounded-full"
+                @click.prevent="processModal = true"
+              >
+                Save & Process
+              </button>
+            </div>
+          </div>
+        </section> -->
+      <!-- </div> -->
+    <!-- </div> -->
+
+    <!-- <div v-else>
+      <s-privilege />
+    </div> -->
+  <!-- </div> -->
+<!-- </template> -->
+
+<!-- <script>
+import { mapGetters } from "vuex";
+
+import AddItemPurchase from "../../../components/AddItemWidget/catalogue";
+import Datepicker from "vuejs-datepicker";
+import setupCodeModal from "@/views/components/setupCodeModal";
+
+export default {
+  components: {
+    AddItemPurchase,
+    Datepicker,
+    setupCodeModal,
+  },
+
+  data() {
+    return {
+      processButton: false,
+      processModal: false,
+      saveButton: false,
+      // materialRequestNumber
+      setupIdModal: false,
+      isGeneratingCode: false,
+
+      materialRequestData: {
+        title: "",
+        requestedOutletId: "",
+        functionMakingRequest: "",
+        functionMakingRequestId: "",
+        functionMakingRequestData: "",
+        materialRequestNumber: "",
+        contact: {
+          contactId: null,
+          contactOrgId: null,
+          contactOutletId: null,
+          name: null,
+          address: null,
+          email: null,
+          contactName: null,
+          phoneNumber: null,
+        },
+        storeManagerId: "",
+        requestedBy: `${this.$store.state.auth.auth.userData.fname} ${this.$store.state.auth.auth.userData.lname}`,
+        requesterSignature: "",
+        requesterDepartment: "",
+        requestedFrom: `${this.$store.state.auth.auth.userData.fname} ${this.$store.state.auth.auth.userData.lname}`,
+        dateRequested: "",
+        validityType: "days",
+        validityDur: "",
+        storeName: "",
+        location: "",
+        storeManager: "",
+        materialRequestBoqs: [],
+      },
+    };
+  },
+
+  methods: {
+
+    addItem(val) {
+      this.materialRequestData.materialRequestBoqs.push({
+        variantCategory: val.item.category.name,
+        variantName: val.variantName,
+        variantCode: val.variantCode,
+        customerVariantSku: val.variantSku,
+        customerVariantId: null,
+        supplierVariantSku: null,
+        supplierVariantId: null,
+        name: val.item.name,
+        description: val.item.description,
+        unitOfMeasure: val.retailPriceBooks[0].unitOfSale,
+        quantityRequested: 0,
+      });
+    },
+
+    deleteItem(val) {
+      this.materialRequestData.materialRequestBoqs.splice(1, val);
+    },
+
+    saveMaterialRequest() {
+      let userInfo = this.$store.state.auth.auth.authData;
+      this.saveButton = true;
+
+      this.materialRequestData.requestedBy = `${
+        this.$store.state.auth.auth.userData.fname
+      } ${
+        this.$store.state.auth.auth.userData.mname
+          ? this.$store.state.auth.auth.userData.mname +
+            " " +
+            this.$store.state.auth.auth.userData.lname
+          : this.$store.state.auth.auth.userData.lname
+      }`;
+      this.materialRequestData.requestedFrom = this.$store.state.auth.auth.loginOutlet.name;
+      this.materialRequestData.functionMakingRequestId = this.materialRequestData.functionMakingRequestData.id;
+      this.materialRequestData.functionMakingRequest = this.materialRequestData.functionMakingRequestData.name;
+
+     
+
+      let data = {
+        userInfo,
+        payload: this.materialRequestData,
+      };
+
+      // console.log(data);
+
+      this.$store
+        .dispatch("inventory/materialRequest/createMaterialRequest", data)
+        .then((resp) => {
+          // console.log(resp.data);
+          this.saveButton = false;
+          this.$vs.notify({
+            title: "Material Request ",
+            text: resp.data.message,
+            color: "primary",
+            position: "top-right",
+          });
+          this.$router.push({ name: "MaterialRequest" });
+        })
+        .catch((err) => {
+          console.log(err);
+          this.saveButton = false;
+          this.$vs.notify({
+            title: "Material Request ",
+            text: err.response.data.message,
+            color: "danger",
+            position: "top-right",
+          });
+        });
+    },
+
+    processMaterialRequest() {
+      this.processButton = true;
+      this.processModal = false;
+      let userInfo = this.$store.state.auth.auth.authData;
+
+      this.materialRequestData.requestedBy = `${
+        this.$store.state.auth.auth.userData.fname
+      } ${
+        this.$store.state.auth.auth.userData.mname
+          ? this.$store.state.auth.auth.userData.mname +
+            " " +
+            this.$store.state.auth.auth.userData.lname
+          : this.$store.state.auth.auth.userData.lname
+      }`;
+      this.materialRequestData.requestedFrom = this.$store.state.auth.auth.loginOutlet.name;
+      this.materialRequestData.functionMakingRequestId = this.materialRequestData.functionMakingRequestData.id;
+      this.materialRequestData.functionMakingRequest = this.materialRequestData.functionMakingRequestData.name;
+
+      
+
+      let data = { userInfo, payload: this.materialRequestData };
+
+      this.$store
+        .dispatch("inventory/materialRequest/createMaterialRequest", data)
+        .then((resp) => {
+          if (resp.data) {
+            let data2 = {
+              userInfo: userInfo,
+              payload: {
+                materialRequestId: resp.data.id,
+                manualApproval: {
+                  isManualApproval: false,
+                  scellooId: "",
+                },
+              },
+            };
+            this.$store
+              .dispatch("inventory/materialRequest/sendMaterialRequest", data2)
+              .then((resp) => {
+                this.processButton = false;
+                this.processModal = false;
+                this.$vs.notify({
+                  title: "Material Request",
+                  text: resp.data.message,
+                  color: "primary",
+                  position: "top-right",
+                });
+                this.$router.push({ name: "MaterialRequest" });
+              });
+          }
+        })
+        .catch((err) => {
+          this.processButton = false;
+          this.processModal = true;
+          console.log(err);
+          this.$vs.notify({
+            title: "Material Request ",
+            text: "Request error",
+            color: "danger",
+            position: "top-right",
+          });
+        });
+    },
+
+    selectedStoreManager() {
+      this.materialRequestData.requestedOutletId = this.materialRequestData.contact.id;
+      // console.log(this.materialReturnData.contact)
+      // this.outlet = this.materialRetquestData.contact.id;
+      let name = `${this.materialRequestData.contact.manager.fname} ${this.materialRequestData.contact.manager.lname}`;
+      let storeManagerId = `${this.materialRequestData.contact.manager.id}`;
+      this.materialRequestData.storeManager = name;
+      this.materialRequestData.storeManagerName = name;
+      this.materialRequestData.storeManagerId = storeManagerId;
+    },
+
+    selectedFunctionId() {
+      // this.functionMakingRequestId = name;
+      // console.log(this.functionMakingRequestId)
+    },
+
+    // setup code for material request
+    // eslint-disable-next-line no-unused-vars
+    async setupCodeFormat(payload) {
+      try {
+        this.isGeneratingCode = true;
+        await this.$store.dispatch(
+          "inventory/materialRequest/createMaterialRequestCode",
+          payload
+        );
+        this.$vs.notify({
+          title: "Material Request",
+          text: "Code Saved",
+          color: "primary",
+          position: "top-right",
+        });
+        this.getSetupCodeFormat();
+      } catch (err) {
+        this.$vs.notify({
+          title: "Material Request",
+          text: "Code Error",
+          color: "danger",
+          position: "top-right",
+        });
+      } finally {
+        this.isGeneratingCode = false;
+      }
+    },
+
+    async getSetupCodeFormat() {
+      // try {
+      //   const userInfo = this.$store.state.auth.auth.authData;
+
+      //   const payload = {
+      //     userInfo,
+      //     payload: {
+      //       moduleName: "MATREQ",
+      //       yearOfBirth: null,
+      //       contactName: null,
+      //     },
+      //   };
+
+      //   const { data } = await this.$store.dispatch(
+      //     "inventory/materialRequest/getGeneratedMaterialRequestCode",
+      //     payload
+      //   );
+
+      //   this.materialRequestData.materialRequestNumber = data.code;
+      // } catch (err) {
+      //   throw err;
+      // }
+    },
+  },
+
+  computed: {
+    ...mapGetters("userOutlet", [
+      "getOptimaOutlet",
+      "getUsers",
+      "getOptimaUsers",
+      "getOrgFunction",
+    ]),
+
+    ...mapGetters("auth/roles", [
+      "getIsAccOwner",
+      "getMaterialRequestPrivileges",
+    ]),
+  },
+
+  mounted() {
+    this.$store.dispatch("userOutlet/getOptimaOrganisationOutlet");
+    this.$store.dispatch("userOutlet/getOrgFunction");
+    // this.getSetupCodeFormat();
+  },
+};
+</script> -->
+
+<!-- <style></style> -->
+<template>
+  <div>
+    <back location=" Material Request - Create New " class="mb-8" />
+
+    <!--  Delete Modal -->
+    <s-modal :modal="deleteModal">
+      <div
+        class="rounded bg-white px-6 py-8 font-normal"
+        style="width: 400px; font-size: 14px"
+      >
+        <div class="flex justify-between items-center mb-5">
+          <h1 class="font-semibold capitalize">Delete Item</h1>
+          <img
+            :src="image_close"
+            alt="close"
+            class="cursor-pointer"
+            @click="handleClose"
+          />
+        </div>
+
+        <p class="my-6">Are you sure you want to delete this item?</p>
+
+        <s-content-seperator class="my-8" />
+
+        <div class="flex justify-between">
+          <s-button
+            class="px-8 bg-light-optima-color text-primary-optima-color"
+            @click="handleClose"
+          >
+            Cancel
+          </s-button>
+
+          <s-button class="px-8 bg-primary-optima-color text-white capitalize">
+            Proceed
+          </s-button>
+        </div>
+      </div>
+    </s-modal>
+    <!--  Add Supply Modal -->
+    <s-modal :modal="addModal">
+      <div
+        class="rounded bg-white px-6 py-8 font-normal"
+        style="width: 400px; font-size: 14px"
+      >
+        <div class="flex justify-between items-center mb-5">
+          <h1 class="font-semibold capitalize">Add Item</h1>
+          <img
+            :src="image_close"
+            alt="close"
+            class="cursor-pointer"
+            @click="handleClose"
+          />
+        </div>
+
+        <s-combo-box class="mb-3 mt-2" />
+        <s-text label="Item Name:" class="mb-3" />
+        <s-text
+          label="SKU:"
+          placeholder="-- Autogenerated --"
+          disabled
+          class="mb-3"
+        />
+        <s-text label="UofM:" placeholder="-- Enter --" class="mb-3" />
+        <s-text
+          label="Batch #:"
+          placeholder="-- Autogenerated --"
+          disabled
+          class="mb-3"
+        />
+        <s-text label="Expiry  Date:" type="date" class="mb-3" />
+        <s-text
+          label="Available Qty:"
+          placeholder="-- Autogenerated --"
+          disabled
+          class="mb-3"
+        />
+        <s-text label="Delivery Qty:" placeholder="-- Enter --" class="mb-3" />
+
+        <s-content-seperator class="my-8" />
+
+        <div class="flex justify-between">
+          <s-button
+            class="px-8 bg-light-optima-color text-primary-optima-color"
+            @click="handleClose"
+          >
+            Cancel
+          </s-button>
+
+          <s-button class="px-8 bg-primary-optima-color text-white capitalize">
+            Proceed
+          </s-button>
+        </div>
+      </div>
+    </s-modal>
+    <div class="bg-white px-5">
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item bg-white border border-gray-200">
+          <h2 class="accordion-header mb-0" id="headingOne">
+            <button
+              class="
+                accordion-button
+                relative
+                flex
+                items-center
+                w-full
+                py-4
+                px-5
+                text-base text-black-800 text-left
+                bg-white
+                border-0
+                rounded-none
+                transition
+                focus:outline-none
+                semibold
+              "
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+            >
+              Request Info
+            </button>
+          </h2>
+          <div
+            id="collapseOne"
+            class="accordion-collapse collapse show"
+            aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body py-4 px-5">
+              <div class="w-full flex">
+                <div class="w-1/2 mr-2">
+                  <s-text
+                    label="Request#:"
+                     v-model="materialRequestData.materialRequestNumber"
+                    placeholder="-- request number --"
+                  />
+                </div>
+                <div class="w-1/2 ml-2">
+                  <s-text
+                    label="Validity #:"
+                    v-model="materialRequestData.validityDur"
+                    placeholder="2"
+                  />
+                </div>
+              </div>
+              <div class="w-full flex mt-4">
+                <div class="w-1/2 mr-2">
+                  <s-text
+                    label="Approval status:"
+                    disabled
+                    placeholder="-- Autoloaded --"
+                  />
+                </div>
+                <div class="w-1/2 ml-2">
+                  <s-text
+                    label="Issue status #:"
+                  
+                    placeholder="-- Autoloaded --"
+                  />
+                </div>
+              </div>
+              <div class="mt-3 xl:w-96">
+                <label class="form-label inline-block mb-2 text-gray-700"
+                  >Request Description:</label
+                >
+                <textarea
+                  class="
+                    block
+                    w-full
+                    mt-3
+                    px-3
+                    py-8
+                    text-base
+                    border-1 border-solid border-gray-400
+                    rounded
+                  "
+                  rows="3"
+                  placeholder="-- Enter --"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item bg-white border border-gray-200">
+          <h2 class="accordion-header mb-0" id="headingTwo">
+            <button
+              class="
+                accordion-button
+                collapsed
+                relative
+                flex
+                items-center
+                w-full
+                py-4
+                px-5
+                text-base text-gray-800 text-left
+                bg-white
+                border-0
+                rounded-none
+                transition
+                focus:outline-none
+              "
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo"
+              aria-expanded="false"
+              aria-controls="collapseTwo"
+            >
+              Requestioner
+            </button>
+          </h2>
+          <div
+            id="collapseTwo"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body py-4 px-5">
+              <div class="w-full flex">
+                <div class="w-1/3 mr-3">
+                  <s-text label="Name:" disabled />
+                  <s-text label="Date:" v-model="materialRequestData.dateRequested" type="date" class="my-4" />
+                </div>
+                <div class="w-1/3 mr-3">
+                  <s-text label="Phone Number:" />
+                  <s-text label="Department:" class="my-4" />
+                </div>
+                <div class="w-1/3">
+                  <s-text label="Email:"  />
+                  <s-select label="Delivery Location:" class="my-4" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item bg-white border border-gray-200">
+          <h2 class="accordion-header mb-0" id="headingThree">
+            <button
+              class="
+                accordion-button
+                collapsed
+                relative
+                flex
+                items-center
+                w-full
+                py-4
+                px-5
+                text-base text-gray-800 text-left
+                bg-white
+                border-0
+                rounded-none
+                transition
+                focus:outline-none
+              "
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseThree"
+              aria-expanded="false"
+              aria-controls="collapseThree"
+            >
+              Supplier
+            </button>
+          </h2>
+          <div
+            id="collapseThree"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingThree"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body py-4 px-5">
+              <div class="w-full flex">
+                <div class="w-1/3 mr-3">
+                  <p
+                    class="
+                      text-cloudenly-primary-main
+                      flex
+                      justify-end
+                      whitespace-nowrap
+                      cursor-pointer
+                    "
+                    @click="openAddModal"
+                  >
+                    Add New
+                  </p>
+
+                  <s-text label="Supplier Name:" />
+
+                  <s-text label="City:" disabled class="my-4" />
+                  <s-text
+                    label="Apartment or House Number:"
+                    disabled
+                    class="my-4"
+                  />
+                  <s-text label="Email:"  class="my-4" />
+                </div>
+                <div class="w-1/3 mr-3 mt-4">
+                  <s-text label="Country:" />
+                  <s-text label="Zip or Post Code:"  class="my-4" />
+                  <s-text label="Contact Person:"  class="my-4" />
+                </div>
+                <div class="w-1/3 mt-4">
+                  <s-text label="State or Region:"  />
+                  <s-text label="Street Name:"  class="my-4" />
+                  <s-text label="Phone Number:"  class="my-4" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-1 border-gray-300 w-80 border-dashed mx-6"></div>
+      </div>
+      <div class="my-4 py-4 px-5">
+        <div class="mb-3 xl:w-96">
+          <label
+            for="exampleFormControlTextarea1"
+            class="form-label inline-block mb-2 text-gray-700"
+            >Request Description:</label
+          >
+          <textarea
+          v-model="materialRequestData.description"
+            class="
+              block
+              w-full
+              mt-3
+              px-3
+              py-8
+              text-base
+              border-1 border-solid border-gray-400
+              rounded
+            "
+            rows="3"
+            placeholder="-- Enter --"
+          ></textarea>
+        </div>
+      </div>
+      <div class="border-1 border-gray-300 w-80 border-dashed mx-6 mt-8"></div>
+      <h1 class="px-5 py-5">Bill of Quantity</h1>
+      <table class="w-full px-5">
+        <thead class="px-5">
+          <tr class="px-5 bg-gray-200">
+            <th class="py-3">Item Name</th>
+            <th>Description</th>
+            <th>Sku</th>
+            <th>UofM</th>
+            <th>Available Quantity</th>
+            <th>Qty Requested</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  v-for="(material,
+                  index) in materialRequestData.materialRequestBoqs"
+                  :key="index">
+            <td class="border-1 border-gray-400 py-2">
+              <s-text
+                class="mx-4"
+                placeholder="Spraying machine"
+                :width="150"
+                v-model="material.variantName"
+              />
+            </td>
+            <td class="border-1 border-gray-400 py-2">
+              <s-text
+                class="mx-4"
+                placeholder="Automatic Sprayer"
+                v-model="material.description"
+                :width="150"
+              />
+            </td>
+            <td class="border-1 border-gray-400 py-2">
+              <s-text class="mx-4" placeholder="50KG"  v-model="material.quantityRequested" :width="150" />
+            </td>
+            <td class="border-1 border-gray-400 py-2">
+              <s-text class="mx-4" placeholder="nr"  :width="150" />
+            </td>
+            <td class="border-1 border-gray-400 py-2">
+              <s-text class="mx-4" placeholder="0" :width="150" />
+            </td>
+            <td class="border-1 border-gray-400 py-2">
+              <s-text class="mx-4" placeholder="0" :width="150" />
+            </td>
+            <td
+              class="border-1 border-gray-400 py-2 cursor-pointer"
+              @click="openDeleteModal"
+            >
+              <img :src="trash" @click="deleteItem(index)" class="mx-6" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="py-6">
+        <div class="flex justify-center cursor-pointer">
+          <img :src="add" alt="" srcset="" />
+          <p class="text-primary-optima-color mt-1 ml-2" @click="addItem">Add Item</p>
+        </div>
+      </div>
+      <div class="flex justify-between py-6">
+         <div>
+          <s-button class="px-8 bg-light-optima-color text-primary-optima-color">Cancel</s-button>
+        </div>
+        <div class="inline-flex">
+          <s-button class="px-8 bg-gray-700 text-white mr-4">Save As Draft</s-button>
+          <s-button class="px-8 bg-primary-optima-color text-white capitalize" @click="saveMaterialRequest">Save</s-button>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import trash from "@/assets/images/optimaAsset/trash.svg";
+import add from "@/assets/images/optimaAsset/add.svg";
+import image_close from "@/assets/images/optimaAsset/shared/close-red.svg";
+import { mapGetters } from "vuex";
+
+
+export default {
+  data() {
+    return {
+      trash,
+      add,
+      image_close,
+      deleteModal: false,
+      addModal: false,
+      materialRequestData: {
+        title: "",
+        requestedOutletId: `${this.$store.state.auth.auth.authData.orgId}`,
+        functionMakingRequest: "",
+        functionMakingRequestId: "",
+        functionMakingRequestData: "",
+        materialRequestNumber: "",
+        contact: {
+          contactId: null,
+          contactOrgId: null,
+          contactOutletId: null,
+          name: null,
+          address: null,
+          email: null,
+          contactName: null,
+          phoneNumber: null,
+        },
+        storeManagerId: "",
+        requestedBy: `${this.$store.state.auth.auth.userData.fname} ${this.$store.state.auth.auth.userData.lname}`,
+        requesterSignature: "",
+        requesterDepartment: "",
+        requestedFrom: `${this.$store.state.auth.auth.userData.fname} ${this.$store.state.auth.auth.userData.lname}`,
+        dateRequested: "",
+        validityType: "days",
+        validityDur: "",
+        storeName: "",
+        location: "",
+        storeManager: "",
+        materialRequestBoqs: [],
+      },
+    };
+  },
+  methods: {
+    handleClose() {
+      this.deleteModal = false;
+      this.addModal = false;
+    },
+    openDeleteModal() {
+      this.deleteModal = true;
+    },
+    openAddModal() {
+      this.addModal = true;
+    },
+    addItem(val) {
+      this.materialRequestData.materialRequestBoqs.push({
+        variantCategory: val.item.category.name,
+        variantName: val.variantName,
+        variantCode: val.variantCode,
+        customerVariantSku: val.variantSku,
+        customerVariantId: null,
+        supplierVariantSku: null,
+        supplierVariantId: null,
+        name: val.item.name,
+        description: val.item.description,
+        unitOfMeasure: val.retailPriceBooks[0].unitOfSale,
+        quantityRequested: 0,
+      });
+    },
+
+    deleteItem(val) {
+      this.materialRequestData.materialRequestBoqs.splice(1, val);
+    },
+
+   saveMaterialRequest() {
+      let userInfo = this.$store.state.auth.auth.authData;
+      this.saveButton = true;
+
+      this.materialRequestData.requestedBy = `${
+        this.$store.state.auth.auth.userData.fname
+      } ${
+        this.$store.state.auth.auth.userData.mname
+          ? this.$store.state.auth.auth.userData.mname +
+            " " +
+            this.$store.state.auth.auth.userData.lname
+          : this.$store.state.auth.auth.userData.lname
+      }`;
+      this.materialRequestData.requestedFrom = this.$store.state.auth.auth.loginOutlet.name;
+      this.materialRequestData.functionMakingRequestId = this.materialRequestData.functionMakingRequestData.id;
+      this.materialRequestData.functionMakingRequest = this.materialRequestData.functionMakingRequestData.name;
+      this.materialRequestData.requestedOutletId =this.$store.state.auth.auth.authData.orgId
+
+     
+
+      let data = {
+        userInfo,
+        payload: this.materialRequestData,
+      };
+
+      // console.log(data);
+
+      this.$store
+        .dispatch("inventory/materialRequest/createMaterialRequest", data)
+        .then((resp) => {
+          // console.log(resp.data);
+          this.saveButton = false;
+          this.$vs.notify({
+            title: "Material Request ",
+            text: resp.data.message,
+            color: "primary",
+            position: "top-right",
+          });
+          this.$router.push({ name: "MaterialRequest" });
+        })
+        .catch((err) => {
+          console.log(err);
+          this.saveButton = false;
+          this.$vs.notify({
+            title: "Material Request ",
+            text: err.response.data.message,
+            color: "danger",
+            position: "top-right",
+          });
+        });
+    },
+
+  },
+    computed: {
+    ...mapGetters("userOutlet", [
+      "getOptimaOutlet",
+      "getUsers",
+      "getOptimaUsers",
+      "getOrgFunction",
+    ]),
+
+    ...mapGetters("auth/roles", [
+      "getIsAccOwner",
+      "getMaterialRequestPrivileges",
+    ]),
+  },
+
+  mounted() {
+    this.$store.dispatch("userOutlet/getOptimaOrganisationOutlet");
+    this.$store.dispatch("userOutlet/getOrgFunction");
+    // this.getSetupCodeFormat();
+  },
+};
+</script>

@@ -1,0 +1,92 @@
+@use 'sass:math';
+/*========================================================
+		SPACING
+=========================================================*/
+
+$spacer: 2rem;
+$spacer-sm: math.div($spacer, 2);
+$spacer-lg: ($spacer * 2);
+
+/*========================================================
+		COLORS
+=========================================================*/
+
+$primary: #7367f0;
+$success: #28c76f;
+$danger: #ea5455;
+$warning: #ff9f43;
+$dark: #1e1e1e;
+$grey: #b8c2cc;
+$grey-light: #dae1e7;
+$white: #fff;
+$black: #22292f;
+
+/*========================================================
+		TYPOGRAPHY
+=========================================================*/
+// @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+// $font-family-sans-serif: "Lato", Rubik,  Roboto , Helvetica, sans-serif !default;
+
+// @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,900&display=swap');
+// $font-family-sans-serif: "Nunito Sans", sans-serif !default;
+
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+$font-family-sans-serif: "Poppins", sans-serif !default;
+
+// $font-family-sans-serif: "Montserrat" , Helvetica, Arial, sans-serif !default;
+// $font-family-sans-serif:  "Rubik", Helvetica, Arial, sans-serif !default;
+// $font-family-serif:  Georgia, "Times New Roman", Times, serif !default;
+
+$font-size-base: 12px !default;
+$font-size-large: ceil(($font-size-base * 1.25)) !default;
+$font-size-small: ceil(($font-size-base * 0.85)) !default;
+
+$h1-font-size: $font-size-base * 1.6;
+$h2-font-size: $font-size-base * 1.4;
+$h3-font-size: $font-size-base * 1.3;
+$h4-font-size: $font-size-base * 1.1;
+$h5-font-size: $font-size-base * 1.01;
+$h6-font-size: $font-size-base;
+
+$line-height-base: 1.5rem !default;
+
+$headings-font-family: inherit !default;
+$headings-font-weight: 600 !default;
+$headings-line-height: 1.2 !default;
+$headings-color: #080808;
+$headings-margin-bottom: math.div($spacer, 2) !default;
+
+$font-weight-light: 300;
+$font-weight-normal: 500;
+$font-weight-bold: 600;
+
+$font-weight-base: $font-weight-normal;
+$line-height-base: 1.5;
+
+$content-color: #525252;
+
+/*========================================================
+		TYPOGRAPHY
+=========================================================*/
+
+$reduced-sidebar-width: 80px;
+
+/*========================================================
+		DARK THEME
+=========================================================*/
+
+$sidebar-dark-bg: #10163a;
+$content-dark-bg: #262c49;
+$dark-card-color: #10163a;
+$table-dark-stripe: #212744;
+$table-light-stripe: #262c49;
+$grid-dark-color: #343661;
+
+// Optima Theme
+$sidebar-optima-theme-bg: #2735a0;
+$content-optima-theme-bg: #262c49;
+$dark-card-color: #4c4c4e;
+$table-dark-stripe: #212744;
+$table-light-stripe: #262c49;
+$grid-dark-color: #343661;

@@ -1,0 +1,50 @@
+Cloudenly Optima 4.10.0
+
+October 13, 2020
+
+What’s New
+
+    Customer Relation Management
+      - Customer Profiling
+      - Customer Management
+      - Promotion
+      - Calendar and Meeting
+
+    Item Catalogue
+     - Item Profiling
+     
+
+    Purchase Module
+      - Supplier Profiling
+      - Purchase Requisition 
+      - Request for Quote
+      - Purchase Order
+
+    Sale Module
+      - Outlet Pricebook
+      - Quotation
+      - Invoice
+      - Waybill
+
+    Inventory
+     - Outlet and Inventory class setup
+     - Stock Balance : - Total Inventory, Holding Inventory and Inventory Class
+     - Waybill
+     - Good Received Note
+     - Material Request
+     - Material Return
+
+Bug Fixes
+
+
+
+October 18, 2020
+
+What’s New
+
+   - improve UI for organization setting - Functions,Job Level, Designation and People
+   
+Bug Fixes
+
+   - fix recurring and rental invoice issues.
+  
